@@ -36,9 +36,8 @@
 }
 
 .navBarCollapse {
-  justify-content: flex-end;
-  margin-right: 20px;
-  flex-grow: 1;
+  margin-right: 40px;
+  flex-grow: 0;
   align-items: center;
 }
 
@@ -84,7 +83,7 @@
   text-transform: capitalize;
   text-align: center;
   font-weight: 600;
-  display: block;
+  /* display: block; */
   padding: .5rem 1rem;
   padding-right: 0;
   padding-left: 0;

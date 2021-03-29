@@ -5,6 +5,10 @@ import { Helmet } from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
+import "bootstrap/dist/css/bootstrap.min.css";
+import "jquery/dist/jquery.min.js";
+import "popper.js/dist/popper.min";
+import "bootstrap/dist/js/bootstrap.min.js"
 
 class RootIndex extends React.Component {
   render() {
@@ -15,20 +19,6 @@ class RootIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <div style={{ background: '#fff'}}>
-         {/*  <Helmet title={siteTitle} /> */}
-         {/*  <Hero data={author.node} /> */}
-          {/* <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list">
-              {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })}
-            </ul>
-          </div> */}
         </div>
       </Layout>
     )
