@@ -5,10 +5,40 @@ import { Helmet } from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
+import Post from '../components/post'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "popper.js/dist/popper.min";
 import "bootstrap/dist/js/bootstrap.min.js"
+
+const container = {
+  paddingLeft: '1rem',
+  paddingRight: '17rem',
+  marginBottom: '1.5rem',
+  marginTop: '7rem',
+  width: '100%'
+};
+
+const rightCol = {
+  width: '39.5%'
+}
+
+const leftCol = {
+  width: '57.5%'
+};
+
+const popular = {
+  backgroundColor: '#E26447',
+  color: "#fff",
+  fontSize: "14px",
+  lineHeight: '28px',
+  fontFamily: "P22, sans-serif",
+  fontWeight: '600',
+  textTransform: 'uppercase',
+  textAlign: 'center',
+  bordeRadius: '2px',
+  letterSpacing: '4px'
+};
 
 class RootIndex extends React.Component {
   render() {
@@ -18,7 +48,20 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <div style={{ background: '#fff'}}>
+        <div style={{ background: '#fff' }}>
+          <div className="row justify-content-center" style={container}>
+            <div style={leftCol} className="col-lg-8 col-xl-8 order-xl-1 order-lg-1">
+
+            </div>
+            <div style={rightCol} className="col-lg-4 col-xl-4 order-xl-1 order-lg-1">
+              <div className="popular">
+              </div>
+              <Post></Post>
+              <Post></Post>
+              <Post></Post>
+            </div>
+
+          </div>
         </div>
       </Layout>
     )
