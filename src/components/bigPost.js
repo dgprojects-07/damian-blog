@@ -6,8 +6,9 @@ const post = {
   textDecoration: 'none',
   borderRadius: "8px",
   boxShadow: '0 0 20px rgb(0 0 0 / 20%)',
-  alignContent: 'center',
-  minHeight: '144px',
+  display: 'flex',
+  height: '100%',
+  flexDirection: 'column'
 };
 
 const imageWrapper = {
@@ -15,26 +16,28 @@ const imageWrapper = {
   backgroundPosition: '50%',
   backgroundRepeat: 'no-repeat',
   minHeight: '374px',
-  display: 'flex',
 };
 
 const image = {
   position: 'relative',
   overflow: 'hidden',
   width: '100%',
+  height: '100%',
   maxHeight: '374px',
 };
 
 const textWrapper = {
+  height: '100%',
+  display: 'flex',
+  alignItems: 'center',
+};
+
+const textContainer = {
   paddingTop: '1rem',
   paddingBottom: '1rem',
   paddingLeft: '3rem',
   paddingRight: '3rem',
-  height: '100%',
-  display: 'flex',
-  alignItems: 'center',
-  display: 'flex',
-};
+}
 
 const small = {
   fontSize: '14px',
@@ -58,16 +61,18 @@ const text = {
 export default () => (
   <a style={post}>
     <div style={imageWrapper}>
-        <img style={image} />
-      </div>
-      <div style={textWrapper}>
+      <img style={image} />
+    </div>
+    <div style={textWrapper}>
+      <div style={textContainer}>
         <p style={small}>
-          Date
+          Blog author name | Date
           </p>
         <h6 style={text}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </h6>
       </div>
-    
+    </div>
+
   </a>
 );

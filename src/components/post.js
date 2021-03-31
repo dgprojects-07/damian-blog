@@ -52,17 +52,17 @@ const text = {
 };
 
 export default () => (
-    <a style={post}>
-      <div style={imageWrapper}>
-        <img style={image} />
-      </div>
-      <div style={textWrapper}>
-        <p style={small}>
-          Date
+  <a style={post}>
+    <div style={imageWrapper}>
+      <img style={image} />
+    </div>
+    <div style={textWrapper}>
+      <p style={small}>
+        Date
         </p>
-        <h6 style={text}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      <h6 style={text}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </h6>
-      </div>
-    </a>
+    </div>
+  </a>
 );
