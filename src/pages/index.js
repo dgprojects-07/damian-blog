@@ -5,9 +5,9 @@ import { Helmet } from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
-import Post from '../components/post'
-import BigPost from '../components/bigPost'
-import MediumPost from '../components/mediumPost'
+import Post from '../components/Post'
+import BigPost from '../components/BigPost'
+import MediumPost from '../components/MediumPost'
 import CategoryCard from '../components/categoryCard'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
@@ -143,6 +143,104 @@ const latestBtn = {
   boxShadow: '0 0.5rem 1rem rgb(0 0 0 / 15%)'
 };
 
+const footerContainer = {
+  backgroundColor: '#293F4C',
+  width: '100%',
+  paddingLeft: '15px',
+  paddingRight: '15px',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+};
+
+const footer = {
+  padding: '40px 0px',
+  maxWidth: '1310px',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+};
+
+const footerContent = {
+  flexDirection: 'row',
+  display: 'flex',
+  justifyContent: 'space-between'
+};
+
+const signUpContainer = {
+  fontSize: '24px',
+  paddingBottom: '3rem',
+  paddingLeft: '1.5rem',
+  paddingRight: '1.5rem',
+  paddingTop: '1.5rem',
+  width: '100%',
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  backgroundColor: '#f5f6ff'
+};
+
+const signUp = {
+  paddingTop: '10px',
+  maxWidth: '1310px',
+  paddingRight: '15px',
+  paddingLeft: '15px',
+  textAlign: 'center',
+  marginLeft: 'auto',
+  marginRight: 'auto'
+};
+
+const signUpText = {
+  fontWeight: '400',
+  width: '50%',
+  fontSize: '24px',
+  lineHeight: '34px',
+  paddingBottom: '40px',
+  paddingTop: '1.5rem',
+  margin: 'auto',
+  color: "#293F4C"
+};
+
+const formContainer = {
+  textAlign: 'center',
+  marginBottom: '3rem'
+};
+
+const form = {
+  paddingBottom: '10px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+};
+
+const input = {
+  margin: '0',
+  height: '62px',
+  boxShadow: '0 0 40px rgb(2 12 87 / 15%)',
+  maxWidth: '402px',
+  borderRadius: '8px',
+  border: '1px solid #c8c8c8',
+  padding: '17px 30px',
+  fontWeight: '400',
+  minWidth: '380px',
+  fontSize: '22px',
+};
+
+const signUpBtn = {
+  margin: '0px 20px',
+  height: '60px',
+  fontSize: '20px',
+  paddingRight: '26px',
+  paddingLeft: '26px',
+  boxShadow: '0 0 10px rgb(2 12 87 / 20%)',
+  whiteSpace: 'pre-line',
+  cursor: 'pointer',
+  borderColor: '#AE462C',
+  background: '#E26447',
+  color: '#FFFFFF',
+  borderBottom: '3px solid #AE462C',
+  borderRadius: '8px',
+  fontWeight: '600',
+  padding: '10px 22px'
+};
+
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -201,6 +299,30 @@ class RootIndex extends React.Component {
             <button style={latestBtn}>Load More</button>
           </div>
         </section>
+        <section style={signUpContainer}>
+          <div style={signUp}>
+            <p style={signUpText}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <div style={formContainer}>
+              <form style={form}>
+                <div>
+                  <input id="email" type="email" name="email" placeholder="Enter your email address" style={input} />
+                </div>
+                <button style={signUpBtn}>
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+        <div style={footerContainer}>
+          <div style={footer}>
+            <div style={footerContent}>
+              <h3 style={{ color: "#fff" }}>Footer</h3>
+            </div>
+          </div>
+        </div>
 
       </Layout>
     )

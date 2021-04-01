@@ -63,6 +63,11 @@ a {
   border-bottom: 1px solid #ddd;
 }
 
+#email::placeholder {
+  color: #a693e5;
+  opacity: 1;
+}
+
 /**
  *
  */
