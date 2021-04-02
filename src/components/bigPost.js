@@ -1,5 +1,5 @@
-import React from 'react'
-import { Row } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { useMediaQuery } from 'react-responsive';
 
 
 const post = {
@@ -58,21 +58,73 @@ const text = {
   margin: '5px 0 0'
 };
 
-export default () => (
-  <a style={post}>
-    <div style={imageWrapper}>
-      <img style={image} />
-    </div>
-    <div style={textWrapper}>
-      <div style={textContainer}>
-        <p style={small}>
-          Blog author name | Date
-          </p>
-        <h6 style={text}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </h6>
-      </div>
-    </div>
+export default function BigPost() {
 
-  </a>
-);
+  const isMobile = useMediaQuery({
+    query: '(max-width: 890px)'
+  });
+
+  const [postStyle, setPostStyle] = useState(post);
+  const [smallStyle, setSmallStyle] = useState(small);
+  const [textStyle, setTextStyle] = useState(text);
+  const [imageWrapperStyle, setImageWrapperStyle] = useState(imageWrapper);
+
+  useEffect(() => {
+    if (isMobile) {
+      setPostStyle({
+        textDecoration: 'none',
+        borderRadius: "8px",
+        boxShadow: '0 0 20px rgb(0 0 0 / 20%)',
+        display: 'flex',
+        height: '100%',
+        flexDirection: 'column',
+        marginBottom: '19px'
+      });
+      setSmallStyle({
+        fontSize: '12px',
+        fontWeight: '400',
+        textAlign: 'left',
+        fontFamily: 'P22, sans-serif',
+        letterSpacing: 0,
+        color: '#E26447',
+        lineHeight: '0',
+        textTransform: 'uppercase'
+      });
+      setTextStyle({
+        fontSize: '24px',
+        fontWeight: '600',
+        lineHeight: '40px',
+        color: '#424242',
+        margin: '5px 0 0'
+      });
+      setImageWrapperStyle({
+        backgroundSize: 'cover',
+        backgroundPosition: '50%',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '180px',
+      });
+    } else {
+      setPostStyle(post);
+      setSmallStyle(small);
+      setTextStyle(text);
+      setImageWrapperStyle(imageWrapper);
+    }
+  }, [isMobile]);
+
+  return (
+    <a style={postStyle}>
+      <div style={imageWrapperStyle}>
+        <img style={image} />
+      </div>
+      <div style={textWrapper}>
+        <div style={textContainer}>
+          <p style={smallStyle}>
+            Blog author name | Date
+          </p>
+          <h6 style={textStyle}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </h6>
+        </div>
+      </div>
+    </a>);
+};

@@ -5,8 +5,7 @@ import { Helmet } from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
-import Post from '../components/Post'
-import BigPost from '../components/BigPost'
+import PostSection from '../components/PostSection'
 import MediumPost from '../components/MediumPost'
 import CategoryCard from '../components/categoryCard'
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -14,11 +13,7 @@ import "jquery/dist/jquery.min.js";
 import "popper.js/dist/popper.min";
 import "bootstrap/dist/js/bootstrap.min.js"
 
-const container = {
-  justifyContent: 'space-between',
-  alignItems: 'stretch',
-  display: 'flex'
-};
+
 
 const postSection = {
   maxWidth: '1310px',
@@ -29,28 +24,6 @@ const postSection = {
   marginRight: 'auto',
   marginLeft: 'auto'
 }
-
-const rightCol = {
-  width: '39.5%',
-
-}
-
-const leftCol = {
-  width: '57.5%',
-};
-
-const popular = {
-  backgroundColor: '#E26447',
-  color: "#fff",
-  fontSize: "14px",
-  lineHeight: '28px',
-  fontFamily: "P22, sans-serif",
-  fontWeight: '600',
-  textTransform: 'uppercase',
-  textAlign: 'center',
-  bordeRadius: '2px',
-  letterSpacing: '4px'
-};
 
 const categories = {
   backgroundColor: '#E26447',
@@ -242,29 +215,20 @@ const signUpBtn = {
 };
 
 class RootIndex extends React.Component {
+
+
+
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
+    
+    
 
     return (
       <Layout location={this.props.location}>
         <div style={postSection}>
-          <div style={container}>
-            <div style={leftCol} >
-              <BigPost>
-
-              </BigPost>
-            </div>
-            <div style={rightCol} >
-              <div style={popular}>
-                Most popular
-              </div>
-              <Post></Post>
-              <Post></Post>
-              <Post></Post>
-            </div>
-          </div>
+         <PostSection></PostSection>
         </div>
         <div style={categories}>
           <section style={catSection}>
