@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useMediaQuery } from 'react-responsive';
 
 const container = {
   width: '31.3%',
@@ -60,17 +61,72 @@ const text = {
 };
 
 export default function MediumPost({ date, title }) {
+
+  const [containerStyle, setContainerStyle] = useState(container);
+  const [imageWrapperStyle, setImageWrapperStyle] = useState(imageWrapper);
+  const [textWrapperStyle, setTextWrapperStyle] = useState(textContainer);
+  const [smallStyle, setSmallStyle] = useState(small);
+  const [textStyle, setTextStyle] = useState(text);
+
+  const isMobile = useMediaQuery({
+    query: '(max-width: 890px)'
+  });
+
+  useEffect(() => {
+    if (isMobile) {
+      setContainerStyle({
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column'
+      });
+      setImageWrapperStyle({
+        backgroundSize: 'cover',
+        backgroundPosition: '50%',
+        backgroundRepeat: 'no-repeat',
+        minHeight: '192px',
+      });
+      setTextWrapperStyle({
+        padding: '18px 24px'
+      });
+      setSmallStyle({
+        fontSize: '12px',
+        fontWeight: '400',
+        textAlign: 'left',
+        fontFamily: 'P22, sans-serif',
+        letterSpacing: 0,
+        color: '#E26447',
+        lineHeight: '1',
+        textTransform: 'uppercase',
+        marginBottom: '8px',
+      });
+      setTextStyle({
+        fontSize: '18px',
+        fontWeight: '600',
+        lineHeight: '24px',
+        color: '#424242',
+        marginTop: '0',
+        marginBottom: '0'
+      });
+    } else {
+      setContainerStyle(container);
+      setImageWrapperStyle(imageWrapper);
+      setTextWrapperStyle(textContainer);
+      setSmallStyle(small);
+      setTextStyle(text);
+    }
+  }, [isMobile]);
+
   return (
-    <div style={container}>
+    <div style={containerStyle}>
       <a style={post}>
-        <div style={imageWrapper}>
+        <div style={imageWrapperStyle}>
           <img style={image} />
         </div>
-        <div style={textContainer}>
-          <p style={small}>
+        <div style={textWrapperStyle}>
+          <p style={smallStyle}>
             {date}
           </p>
-          <h6 style={text}>
+          <h6 style={textStyle}>
             {title}
           </h6>
         </div>
