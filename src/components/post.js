@@ -18,7 +18,6 @@ const imageWrapper = {
 };
 
 const image = {
-  position: 'relative',
   overflow: 'hidden',
   width: '100%',
   height: '100%',
@@ -51,18 +50,19 @@ const text = {
   color: '#424242'
 };
 
-export default () => (
-  <a style={post}>
-    <div style={imageWrapper}>
-      <img style={image} />
-    </div>
-    <div style={textWrapper}>
-      <p style={small}>
-        Date
+export default function Post({ date, title, img }) {
+  return (
+    <a style={post}>
+      <div style={imageWrapper}>
+        <img src={img} style={image} />
+      </div>
+      <div style={textWrapper}>
+        <p style={small}>
+          {date}
         </p>
-      <h6 style={text}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <h6 style={text}>
+          {title}
         </h6>
-    </div>
-  </a>
-);
+      </div>
+    </a>);
+}

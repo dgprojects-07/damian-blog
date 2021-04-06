@@ -19,7 +19,6 @@ const imageWrapper = {
 };
 
 const image = {
-  position: 'relative',
   overflow: 'hidden',
   width: '100%',
   height: '100%',
@@ -58,7 +57,7 @@ const text = {
   margin: '5px 0 0'
 };
 
-export default function BigPost() {
+export default function BigPost({ author, date, title, img }) {
 
   const isMobile = useMediaQuery({
     query: '(max-width: 890px)'
@@ -70,6 +69,7 @@ export default function BigPost() {
   const [imageWrapperStyle, setImageWrapperStyle] = useState(imageWrapper);
 
   useEffect(() => {
+    console.log(img);
     if (isMobile) {
       setPostStyle({
         textDecoration: 'none',
@@ -114,15 +114,15 @@ export default function BigPost() {
   return (
     <a style={postStyle}>
       <div style={imageWrapperStyle}>
-        <img style={image} />
+        <img src={img} style={image} />
       </div>
       <div style={textWrapper}>
         <div style={textContainer}>
           <p style={smallStyle}>
-            Blog author name | Date
+            {`${author} | ${date}`}
           </p>
           <h6 style={textStyle}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            {title}
           </h6>
         </div>
       </div>

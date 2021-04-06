@@ -12,13 +12,14 @@ import "bootstrap/dist/js/bootstrap.min.js"
 class RootIndex extends React.Component {
 
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    //const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
-
+    console.log(posts);
+    console.log(author);
     return (
       <Layout location={this.props.location}>
-        <MainPage />
+        <MainPage posts={posts} author={author} />
       </Layout>
     )
   }

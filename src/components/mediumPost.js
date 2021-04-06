@@ -27,7 +27,6 @@ const imageWrapper = {
 };
 
 const image = {
-  position: 'relative',
   overflow: 'hidden',
   width: '100%',
   height: '100%'
@@ -60,7 +59,7 @@ const text = {
   marginBottom: '0'
 };
 
-export default function MediumPost({ date, title }) {
+export default function MediumPost({ date, title, img }) {
 
   const [containerStyle, setContainerStyle] = useState(container);
   const [imageWrapperStyle, setImageWrapperStyle] = useState(imageWrapper);
@@ -72,8 +71,12 @@ export default function MediumPost({ date, title }) {
     query: '(max-width: 890px)'
   });
 
+  const stop = useMediaQuery({
+    query: '(max-width: 1380px)'
+  });
+
   useEffect(() => {
-    if (isMobile) {
+    if (isMobile || stop) {
       setContainerStyle({
         width: '100%',
         display: 'flex',
@@ -114,13 +117,13 @@ export default function MediumPost({ date, title }) {
       setSmallStyle(small);
       setTextStyle(text);
     }
-  }, [isMobile]);
+  }, [isMobile, stop]);
 
   return (
     <div style={containerStyle}>
       <a style={post}>
         <div style={imageWrapperStyle}>
-          <img style={image} />
+          <img src={img} style={image} />
         </div>
         <div style={textWrapperStyle}>
           <p style={smallStyle}>
