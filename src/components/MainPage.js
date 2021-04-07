@@ -4,7 +4,9 @@ import Post from './Post'
 import BigPost from './BigPost'
 import MediumPost from './MediumPost'
 import CategoryCard from './CategoryCard'
+import Footer from './Footer'
 import styles from './mainPageStyles'
+import { Link } from "gatsby"
 
 export default function MainPage({ posts, author }) {
 
@@ -120,6 +122,7 @@ export default function MainPage({ posts, author }) {
               date={posts[0].node.publishDate}
               title={posts[0].node.title}
               img={posts[0].node.heroImage.fluid.src}
+              slug={posts[0].node.slug}
             />
           </div>
           <div style={rightColStyle} >
@@ -147,11 +150,11 @@ export default function MainPage({ posts, author }) {
             <CategoryCard title="supplements" />
             <CategoryCard title="Natural Remedies" />
             <CategoryCard title="recipes" />
+            <CategoryCard title="dental" />
             <CategoryCard title="tips&tricks" />
             <CategoryCard title="behaviour" />
             <CategoryCard title="health&wellness" />
-            <CategoryCard title="petlab" />
-            <CategoryCard title="petlab" />
+            <CategoryCard title="mobility" />
           </div>
         </section>
       </div>
@@ -191,12 +194,6 @@ export default function MainPage({ posts, author }) {
           </div>
         </div>
       </section>
-      <div style={styles.footerContainer}>
-        <div style={styles.footer}>
-          <div style={styles.footerContent}>
-            <h3 style={{ color: "#fff" }}>Footer</h3>
-          </div>
-        </div>
-      </div>
+      <Footer />
     </>);
 };

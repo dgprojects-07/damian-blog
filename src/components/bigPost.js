@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive';
-
+import { Link } from "gatsby"
 
 const post = {
   textDecoration: 'none',
@@ -57,7 +57,7 @@ const text = {
   margin: '5px 0 0'
 };
 
-export default function BigPost({ author, date, title, img }) {
+export default function BigPost({ author, date, title, img, slug }) {
 
   const isMobile = useMediaQuery({
     query: '(max-width: 890px)'
@@ -69,7 +69,6 @@ export default function BigPost({ author, date, title, img }) {
   const [imageWrapperStyle, setImageWrapperStyle] = useState(imageWrapper);
 
   useEffect(() => {
-    console.log(img);
     if (isMobile) {
       setPostStyle({
         textDecoration: 'none',
@@ -112,19 +111,22 @@ export default function BigPost({ author, date, title, img }) {
   }, [isMobile]);
 
   return (
-    <a style={postStyle}>
-      <div style={imageWrapperStyle}>
-        <img src={img} style={image} />
-      </div>
-      <div style={textWrapper}>
-        <div style={textContainer}>
-          <p style={smallStyle}>
-            {`${author} | ${date}`}
-          </p>
-          <h6 style={textStyle}>
-            {title}
-          </h6>
+    <Link to={`/blog/:${slug}`}>
+      <a style={postStyle}>
+        <div style={imageWrapperStyle}>
+          <img src={img} style={image} />
         </div>
-      </div>
-    </a>);
+        <div style={textWrapper}>
+          <div style={textContainer}>
+            <p style={smallStyle}>
+              {`${author} | ${date}`}
+            </p>
+            <h6 style={textStyle}>
+              {title}
+            </h6>
+          </div>
+        </div>
+      </a>
+    </Link>
+  );
 };

@@ -1,21 +1,21 @@
 import React from 'react'
 
 const styles = {
-  container : {
+  container: {
     justifyContent: 'space-between',
     alignItems: 'stretch',
     display: 'flex',
   },
-  
-  rightCol : {
+
+  rightCol: {
     width: '39.5%'
   },
-  
-  leftCol : {
+
+  leftCol: {
     width: '57.5%'
   },
-  
-  popular : {
+
+  popular: {
     backgroundColor: '#E26447',
     color: "#fff",
     fontSize: "14px",
@@ -27,8 +27,8 @@ const styles = {
     bordeRadius: '2px',
     letterSpacing: '4px'
   },
-  
-   postSection : {
+
+  postSection: {
     maxWidth: '1310px',
     paddingBottom: '1.5rem',
     width: '100%',
@@ -37,23 +37,23 @@ const styles = {
     marginRight: 'auto',
     marginLeft: 'auto',
   },
-  
-   categories : {
+
+  categories: {
     backgroundColor: '#E26447',
     textAlign: 'center',
     padding: '40px 0 70px',
     marginTop: '60px',
   },
-  
-   catSection : {
+
+  catSection: {
     width: '100%',
     paddingRight: '15px',
     paddingLeft: '15px',
     marginRight: 'auto',
     marginLeft: 'auto'
   },
-  
-   title : {
+
+  title: {
     fontSize: '40px',
     fontWeight: '600',
     lineHeight: '1',
@@ -62,8 +62,8 @@ const styles = {
     fontFamily: "'P22', sans-serif",
     paddingBottom: '50px'
   },
-  
-   catContainer : {
+
+  catContainer: {
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr 1fr',
     columnGap: '30px',
@@ -72,8 +72,8 @@ const styles = {
     marginLeft: 'auto',
     marginRight: 'auto'
   },
-  
-   latest : {
+
+  latest: {
     width: '100%',
     paddingRight: '15px',
     paddingLeft: '15px',
@@ -83,8 +83,8 @@ const styles = {
     paddingTop: '40px',
     paddingBottom: '1rem'
   },
-  
-   latestTitle : {
+
+  latestTitle: {
     paddingBottom: '20px',
     lineHeight: '1',
     fontSize: '40px',
@@ -95,8 +95,8 @@ const styles = {
     marginTop: '.25rem',
     color: "#293F4C"
   },
-  
-   latestPosts : {
+
+  latestPosts: {
     display: 'flex',
     flexWrap: 'wrap',
     flexDirection: 'row',
@@ -107,15 +107,15 @@ const styles = {
     marginLeft: 'auto',
     marginRight: 'auto'
   },
-  
-   latestBtnSection : {
+
+  latestBtnSection: {
     overflowAnchor: 'none',
     margin: '30px auto',
     textAlign: 'center',
     width: '100%'
   },
-  
-   latestBtn : {
+
+  latestBtn: {
     cursor: 'pointer',
     borderColor: '#AE462C',
     background: '#E26447',
@@ -128,30 +128,8 @@ const styles = {
     margin: 'auto',
     boxShadow: '0 0.5rem 1rem rgb(0 0 0 / 15%)'
   },
-  
-   footerContainer : {
-    backgroundColor: '#293F4C',
-    width: '100%',
-    paddingLeft: '15px',
-    paddingRight: '15px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  },
-  
-   footer : {
-    padding: '40px 0px',
-    maxWidth: '1310px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-  },
-  
-   footerContent : {
-    flexDirection: 'row',
-    display: 'flex',
-    justifyContent: 'space-between'
-  },
-  
-   signUpContainer : {
+
+  signUpContainer: {
     fontSize: '24px',
     paddingBottom: '3rem',
     paddingLeft: '1.5rem',
@@ -162,8 +140,8 @@ const styles = {
     marginLeft: 'auto',
     backgroundColor: '#f5f6ff'
   },
-  
-   signUp : {
+
+  signUp: {
     paddingTop: '10px',
     maxWidth: '1310px',
     paddingRight: '15px',
@@ -172,8 +150,8 @@ const styles = {
     marginLeft: 'auto',
     marginRight: 'auto'
   },
-  
-   signUpText : {
+
+  signUpText: {
     fontWeight: '400',
     width: '50%',
     fontSize: '24px',
@@ -183,20 +161,20 @@ const styles = {
     margin: 'auto',
     color: "#293F4C"
   },
-  
-   formContainer : {
+
+  formContainer: {
     textAlign: 'center',
     marginBottom: '3rem'
   },
-  
-   form : {
+
+  form: {
     paddingBottom: '10px',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
   },
-  
-   input : {
+
+  input: {
     margin: '0',
     height: '62px',
     boxShadow: '0 0 40px rgb(2 12 87 / 15%)',
@@ -208,8 +186,8 @@ const styles = {
     minWidth: '380px',
     fontSize: '22px',
   },
-  
-   signUpBtn : {
+
+  signUpBtn: {
     margin: '0px 20px',
     height: '60px',
     fontSize: '20px',
