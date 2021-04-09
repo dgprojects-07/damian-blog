@@ -1,5 +1,3 @@
-import React from 'react'
-
 const styles = {
   container: {
     justifyContent: 'space-between',
@@ -24,7 +22,7 @@ const styles = {
     fontWeight: '600',
     textTransform: 'uppercase',
     textAlign: 'center',
-    bordeRadius: '2px',
+    borderRadius: '2px',
     letterSpacing: '4px'
   },
 
@@ -36,41 +34,6 @@ const styles = {
     marginBottom: '1.5rem',
     marginRight: 'auto',
     marginLeft: 'auto',
-  },
-
-  categories: {
-    backgroundColor: '#E26447',
-    textAlign: 'center',
-    padding: '40px 0 70px',
-    marginTop: '60px',
-  },
-
-  catSection: {
-    width: '100%',
-    paddingRight: '15px',
-    paddingLeft: '15px',
-    marginRight: 'auto',
-    marginLeft: 'auto'
-  },
-
-  title: {
-    fontSize: '40px',
-    fontWeight: '600',
-    lineHeight: '1',
-    color: '#fff',
-    textTransform: 'capitalize',
-    fontFamily: "'P22', sans-serif",
-    paddingBottom: '50px'
-  },
-
-  catContainer: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr 1fr',
-    columnGap: '30px',
-    rowGap: '30px',
-    maxWidth: '1310px',
-    marginLeft: 'auto',
-    marginRight: 'auto'
   },
 
   latest: {

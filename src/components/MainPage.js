@@ -3,10 +3,10 @@ import { useMediaQuery } from 'react-responsive';
 import Post from './Post'
 import BigPost from './BigPost'
 import MediumPost from './MediumPost'
-import CategoryCard from './CategoryCard'
+import CategorySection from './CategorySection'
 import Footer from './Footer'
 import styles from './mainPageStyles'
-import { Link } from "gatsby"
+
 
 export default function MainPage({ posts, author }) {
 
@@ -25,8 +25,6 @@ export default function MainPage({ posts, author }) {
   const [containerStyle, setContainerStyle] = useState(styles.container);
   const [rightColStyle, setRightColStyle] = useState(styles.rightCol);
   const [leftColStyle, setLeftColStyle] = useState(styles.leftCol);
-  const [catContainerStyle, setCatContainerStyle] = useState(styles.catContainer);
-  const [catTitleStyle, setCatTitleStyle] = useState(styles.title);
   const [latestPostsStyle, setLatestPostsStyle] = useState(styles.latestPosts);
   const [formStyle, setFormStyle] = useState(styles.form);
   const [inputStyle, setInputStyle] = useState(styles.input);
@@ -53,24 +51,6 @@ export default function MainPage({ posts, author }) {
       });
       setLeftColStyle({
         width: '100%'
-      });
-      setCatContainerStyle({
-        gridTemplateColumns: '1fr 1fr',
-        columnGap: '15px',
-        rowGap: '15px',
-        padding: 0,
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        display: 'grid'
-      });
-      setCatTitleStyle({
-        fontSize: '28px',
-        fontWeight: '600',
-        lineHeight: '1.3',
-        color: '#fff',
-        textTransform: 'capitalize',
-        fontFamily: "'P22', sans-serif",
-        padding: '0 0 30px'
       });
       setLatestPostsStyle({
         display: 'flex',
@@ -104,8 +84,6 @@ export default function MainPage({ posts, author }) {
       setContainerStyle(styles.container);
       setLeftColStyle(styles.leftCol);
       setRightColStyle(styles.rightCol);
-      setCatContainerStyle(styles.catContainer);
-      setCatTitleStyle(styles.title);
       setLatestPostsStyle(styles.latestPosts);
       setFormStyle(styles.form);
       setInputStyle(styles.input);
@@ -141,23 +119,7 @@ export default function MainPage({ posts, author }) {
           </div>
         </div>
       </div>
-      <div style={styles.categories}>
-        <section style={styles.catSection}>
-          <div style={catTitleStyle}>
-            <span>Start reading now</span>
-          </div>
-          <div style={catContainerStyle}>
-            <CategoryCard title="supplements" />
-            <CategoryCard title="Natural Remedies" />
-            <CategoryCard title="recipes" />
-            <CategoryCard title="dental" />
-            <CategoryCard title="tips&tricks" />
-            <CategoryCard title="behaviour" />
-            <CategoryCard title="health&wellness" />
-            <CategoryCard title="mobility" />
-          </div>
-        </section>
-      </div>
+      <CategorySection />
       <section style={styles.latest}>
         <div style={styles.latestTitle}>
           Latest posts

@@ -16,7 +16,8 @@ const post = {
   marginBottom: '19px',
   background: '#fff',
   overflow: 'hidden',
-  color: '#293F4C'
+  color: '#293F4C',
+  
 };
 
 const imageWrapper = {

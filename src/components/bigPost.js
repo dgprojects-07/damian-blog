@@ -8,7 +8,8 @@ const post = {
   boxShadow: '0 0 20px rgb(0 0 0 / 20%)',
   display: 'flex',
   height: '100%',
-  flexDirection: 'column'
+  flexDirection: 'column',
+  
 };
 
 const imageWrapper = {

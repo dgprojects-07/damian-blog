@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive';
-
+import CategorySection from '../components/CategorySection'
+import Footer from '../components/Footer'
+import MediumPost from '../components/MediumPost'
 
 const container = {
   maxWidth: '1310px',
@@ -9,7 +11,9 @@ const container = {
   paddingBottom: '1.5rem',
   paddingTop: '1.5rem',
   width: '100%',
-  marginRight: 'auto'
+  marginRight: 'auto',
+  marginLeft: 'auto',
+  marginTop: '5.5rem'
 };
 
 const inner = {
@@ -92,37 +96,133 @@ const authorImage = {
   marginRight: '17px'
 };
 
-const authorImageWrapper = {
-
+const dateAuthor = {
+  display: 'flex'
 };
 
-export default function BlogPage({ title, tags, authorImg, }) {
+const by = {
+  fontSize: '12px',
+  lineHeight: '40px',
+  textTransform: 'uppercase',
+  color: '#969696',
+  marginRight: '.25rem'
+};
+
+const author = {
+  color: '#E26447',
+  fontWeight: '600',
+  fontSize: '16px',
+  textTransform: 'uppercase'
+};
+
+const date = {
+  paddingLeft: '10px'
+};
+
+const imageWrapper = {
+  boxShadow: '',
+  border: '5px solif #fff',
+  width: '100%',
+  margin: '1rem 0'
+};
+
+const image = {
+  top: '0px',
+  left: '0px',
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+  objectPosition: 'center center',
+  opacity: '1',
+  transition: 'opacity 500ms ease 0s',
+  borderStyle: 'none'
+};
+
+const articleText = {
+  fontSize: '16px',
+  lineHeight: '30px',
+  color: '#000',
+  marginTop: '.5rem'
+};
+
+const recomended = {
+  backgroundColor: '#E26447',
+  color: "#fff",
+  fontSize: "14px",
+  lineHeight: '28px',
+  fontFamily: "P22, sans-serif",
+  fontWeight: '600',
+  textTransform: 'uppercase',
+  textAlign: 'center',
+  borderRadius: '2px',
+  letterSpacing: '4px',
+  marginTop: '10px'
+};
+
+const posts = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between'
+};
+
+export default function BlogPage({ title, tags, authorImg, authorName, postDate, postImage, postText }) {
+
+  useEffect(()=>{
+
+  },[]);
+
   return (
-    <section style={container}>
-      <div style={inner}>
-        <div style={leftCol}>
-          <h1 style={postTitle}>
-            {title}
-          </h1>
-          <div style={categorization}>
-            <div style={tag}>
-              {tags.join('/')}
+    <>
+      <section style={container}>
+        <div style={inner}>
+          <div style={leftCol}>
+            <h1 style={postTitle}>
+              {title}
+            </h1>
+            <div style={categorization}>
+              <div style={tag}>
+                {tags?.join(' / ')}
+              </div>
+              <div style={line}>
+              </div>
             </div>
-            <div style={line}>
+            <div style={articleInfo}>
+              <div style={articleMeta}>
+                <span>
+                  <img alt="author" src={authorImg} style={authorImage} />
+                </span>
+                <div style={dateAuthor}>
+                  <div>
+                    <span style={by}>by:</span>
+                    <span style={author}>{authorName}</span>
+                  </div>
+                  <div style={date}>
+                    {postDate}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style={imageWrapper}>
+              <img alt="" src={postImage} style={image} />
+            </div>
+            <div style={articleText}>
+              <div dangerouslySetInnerHTML={{__html: postText}}>
+              </div>
             </div>
           </div>
-          <div style={articleInfo}>
-            <div style={articleMeta}>
-              <span style={authorImageWrapper}>
-                <img src={authorImg} style={authorImage} />
-              </span>
+          <div style={rightCol}>
+            <div style={recomended}>
+              recomended posts
+            </div>
+            <div style={posts}>
+
             </div>
           </div>
-        </div>
-        <div style={rightCol}>
 
         </div>
-      </div>
-    </section>
+      </section>
+      <CategorySection />
+      <Footer />
+    </>
   );
 };
