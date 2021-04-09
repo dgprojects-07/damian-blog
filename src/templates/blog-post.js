@@ -6,6 +6,7 @@ import BlogPage from '../pages/BlogPage'
 
 class BlogPostTemplate extends React.Component {
   render() {
+    const allPosts = get(this.props, 'data.allContentfulBlogPost.edges')
     const post = get(this.props, 'data.contentfulBlogPost')
     const author = get(this.props, 'data.allContentfulPerson.edges')
 
@@ -19,6 +20,7 @@ class BlogPostTemplate extends React.Component {
           postDate={post?.node.publishDate}
           postImage={post?.node.heroImage.fluid.src}
           postText={post?.node.description.childMarkdownRemark.html}
+          recomendedPosts={allPosts}
         />
       </Layout>
     )
@@ -61,6 +63,26 @@ export const pageQuery = graphql`
               background: "rgb:000000"
             ) {
               ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+      edges {
+        node {
+          title
+          slug
+          publishDate(formatString: "MMMM Do, YYYY")
+          tags
+          heroImage {
+            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+          description {
+            childMarkdownRemark {
+              html
             }
           }
         }

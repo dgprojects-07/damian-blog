@@ -4,6 +4,7 @@ import Post from './Post'
 import BigPost from './BigPost'
 import MediumPost from './MediumPost'
 import CategorySection from './CategorySection'
+import SignUpSection from './SignUpSection'
 import Footer from './Footer'
 import styles from './mainPageStyles'
 
@@ -26,8 +27,7 @@ export default function MainPage({ posts, author }) {
   const [rightColStyle, setRightColStyle] = useState(styles.rightCol);
   const [leftColStyle, setLeftColStyle] = useState(styles.leftCol);
   const [latestPostsStyle, setLatestPostsStyle] = useState(styles.latestPosts);
-  const [formStyle, setFormStyle] = useState(styles.form);
-  const [inputStyle, setInputStyle] = useState(styles.input);
+  const [postContainerStyle, setPostContainerStyle] = useState(styles.postContainer);
 
   useEffect(() => {
     if (isScrolling && isScrollingBack) {
@@ -61,32 +61,17 @@ export default function MainPage({ posts, author }) {
         marginLeft: 'auto',
         marginRight: 'auto'
       });
-      setFormStyle({
+      setPostContainerStyle({
+        width: '100%',
         display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-        margin: '20px auto 0'
-      });
-      setInputStyle({
-        marginBottom: '20px',
-        height: '62px',
-        boxShadow: '0 0 40px rgb(2 12 87 / 15%)',
-        maxWidth: '402px',
-        borderRadius: '8px',
-        border: '1px solid #c8c8c8',
-        padding: '17px 30px',
-        fontWeight: '400',
-        minWidth: '380px',
-        fontSize: '22px',
+        flexDirection: 'column'
       });
     } else {
       setContainerStyle(styles.container);
       setLeftColStyle(styles.leftCol);
       setRightColStyle(styles.rightCol);
       setLatestPostsStyle(styles.latestPosts);
-      setFormStyle(styles.form);
-      setInputStyle(styles.input);
+      setPostContainerStyle(styles.postContainer);
     }
   }, [isMobile, isScrolling, isScrollingBack]);
 
@@ -127,11 +112,13 @@ export default function MainPage({ posts, author }) {
         <section style={latestPostsStyle}>
           {posts?.map(p => {
             return (
-              <MediumPost
-                date={p.node.publishDate}
-                title={p.node.title}
-                img={p.node.heroImage.fluid.src}
-              />
+              <div style={postContainerStyle}>
+                <MediumPost
+                  date={p.node.publishDate}
+                  title={p.node.title}
+                  img={p.node.heroImage.fluid.src}
+                />
+              </div>
             );
           })}
         </section>
@@ -139,23 +126,7 @@ export default function MainPage({ posts, author }) {
           <button style={styles.latestBtn}>Load More</button>
         </div>
       </section>
-      <section style={styles.signUpContainer}>
-        <div style={styles.signUp}>
-          <p style={styles.signUpText}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </p>
-          <div style={styles.formContainer}>
-            <form style={formStyle}>
-              <div>
-                <input id="email" type="email" name="email" placeholder="Enter your email address" style={inputStyle} />
-              </div>
-              <button style={styles.signUpBtn}>
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
+      <SignUpSection bgColor="#f5f6ff"/>
       <Footer />
     </>);
 };

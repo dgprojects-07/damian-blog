@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive';
 
-const container = {
-  width: '31.3%',
-  display: 'flex',
-  flexDirection: 'column'
-};
-
 const post = {
   textDecoration: 'none',
   borderRadius: "8px",
@@ -62,7 +56,6 @@ const text = {
 
 export default function MediumPost({ date, title, img }) {
 
-  const [containerStyle, setContainerStyle] = useState(container);
   const [imageWrapperStyle, setImageWrapperStyle] = useState(imageWrapper);
   const [textWrapperStyle, setTextWrapperStyle] = useState(textContainer);
   const [smallStyle, setSmallStyle] = useState(small);
@@ -78,11 +71,6 @@ export default function MediumPost({ date, title, img }) {
 
   useEffect(() => {
     if (isMobile || stop) {
-      setContainerStyle({
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column'
-      });
       setImageWrapperStyle({
         backgroundSize: 'cover',
         backgroundPosition: '50%',
@@ -112,7 +100,6 @@ export default function MediumPost({ date, title, img }) {
         marginBottom: '0'
       });
     } else {
-      setContainerStyle(container);
       setImageWrapperStyle(imageWrapper);
       setTextWrapperStyle(textContainer);
       setSmallStyle(small);
@@ -121,7 +108,7 @@ export default function MediumPost({ date, title, img }) {
   }, [isMobile, stop]);
 
   return (
-    <div style={containerStyle}>
+    
       <a style={post}>
         <div style={imageWrapperStyle}>
           <img src={img} style={image} />
@@ -135,6 +122,6 @@ export default function MediumPost({ date, title, img }) {
           </h6>
         </div>
       </a>
-    </div>
+    
   );
 };

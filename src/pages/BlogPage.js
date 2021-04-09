@@ -3,9 +3,10 @@ import { useMediaQuery } from 'react-responsive';
 import CategorySection from '../components/CategorySection'
 import Footer from '../components/Footer'
 import MediumPost from '../components/MediumPost'
+import SignUpSection from '../components/SignUpSection'
 
 const container = {
-  maxWidth: '1310px',
+  maxWidth: '1345px',
   paddingLeft: '1.5rem',
   paddingRight: '1.5rem',
   paddingBottom: '1.5rem',
@@ -23,7 +24,8 @@ const inner = {
 };
 
 const leftCol = {
-  width: '57.5%'
+  width: '57.5%',
+  marginRight: '1.5rem'
 };
 
 const rightCol = {
@@ -162,10 +164,15 @@ const recomended = {
 const posts = {
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
+  width: '100%'
 };
 
-export default function BlogPage({ title, tags, authorImg, authorName, postDate, postImage, postText }) {
+const hline = {
+  width: '80%',
+};
+
+export default function BlogPage({ title, tags, authorImg, authorName, postDate, postImage, postText, recomendedPosts }) {
 
   useEffect(()=>{
 
@@ -215,12 +222,21 @@ export default function BlogPage({ title, tags, authorImg, authorName, postDate,
               recomended posts
             </div>
             <div style={posts}>
-
+              {recomendedPosts?.map(p=>{
+                return(
+                  <MediumPost 
+                    date={p.node.publishDate}
+                    title={p.node.title}
+                    img={p.node.heroImage.fluid.src}
+                  />
+                );
+              })}
             </div>
           </div>
-
         </div>
       </section>
+      <hr style={hline}></hr>
+      <SignUpSection bgColor="#fff"/>
       <CategorySection />
       <Footer />
     </>

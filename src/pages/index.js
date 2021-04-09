@@ -26,6 +26,7 @@ class RootIndex extends React.Component {
           postDate={posts[0]?.node.publishDate}
           postImage={posts[0]?.node.heroImage.fluid.src}
           postText={posts[0]?.node.description.childMarkdownRemark.html}
+          recomendedPosts={posts}
         />
       </Layout>
     )
