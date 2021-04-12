@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
 import MainPage from '../components/MainPage'
-import BlogPage from '../pages/BlogPage'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery/dist/jquery.min.js";
 import "popper.js/dist/popper.min";
@@ -17,17 +16,7 @@ class RootIndex extends React.Component {
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
     return (
       <Layout location={this.props.location}>
-        {/* <MainPage posts={posts} author={author} /> */}
-        <BlogPage 
-          title={posts[0]?.node.title}
-          tags={posts[0]?.node.tags}
-          authorImg={author?.node.heroImage.fluid.src}
-          authorName={author?.node.name}
-          postDate={posts[0]?.node.publishDate}
-          postImage={posts[0]?.node.heroImage.fluid.src}
-          postText={posts[0]?.node.description.childMarkdownRemark.html}
-          recomendedPosts={posts}
-        />
+        <MainPage posts={posts} author={author} />
       </Layout>
     )
   }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "gatsby"
 
 const post = {
   textDecoration: 'none',
@@ -50,19 +51,22 @@ const text = {
   color: '#424242'
 };
 
-export default function Post({ date, title, img }) {
+export default function Post({ date, title, img, slug }) {
   return (
-    <a style={post}>
-      <div style={imageWrapper}>
-        <img src={img} style={image} />
-      </div>
-      <div style={textWrapper}>
-        <p style={small}>
-          {date}
-        </p>
-        <h6 style={text}>
-          {title}
-        </h6>
-      </div>
-    </a>);
+    <Link style={{ textDecoration: 'none' }} to={`/blog/${slug}`}>
+      <a style={post}>
+        <div style={imageWrapper}>
+          <img src={img} style={image} />
+        </div>
+        <div style={textWrapper}>
+          <p style={small}>
+            {date}
+          </p>
+          <h6 style={text}>
+            {title}
+          </h6>
+        </div>
+      </a>
+    </Link>
+  );
 }

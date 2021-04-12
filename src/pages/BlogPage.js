@@ -174,16 +174,50 @@ const hline = {
 
 export default function BlogPage({ title, tags, authorImg, authorName, postDate, postImage, postText, recomendedPosts }) {
 
-  useEffect(()=>{
+  const isMobile = useMediaQuery({
+    query: '(max-width: 890px)'
+  });
 
-  },[]);
+  const [innerStyle, setInnerStyle] = useState(inner);
+  const [rightColStyle, setRightColStyle] = useState(rightCol);
+  const [leftColStyle, setLeftColStyle] = useState(leftCol);
+  const [postTitleStyle, setPostTitleStyle] = useState(postTitle);
+
+  useEffect(() => {
+    if (isMobile) {
+      setInnerStyle({
+        display: 'flex',
+        flexFlow: "column",
+        justifyContent: 'space-between',
+        paddingRight: '15px',
+        paddingLeft: '15px'
+      });
+      setRightColStyle({
+        width: '100%'
+      });
+      setLeftColStyle({
+        width: '100%'
+      });
+      setPostTitleStyle({
+        fontSize: '28px',
+        fontWeight: '600',
+        lineHeight: '38px',
+        marginBottom: '.5rem'
+      });
+    } else {
+      setInnerStyle(inner);
+      setRightColStyle(rightCol);
+      setLeftColStyle(leftCol);
+      setPostTitleStyle(postTitle);
+    }
+  }, [isMobile]);
 
   return (
     <>
       <section style={container}>
-        <div style={inner}>
-          <div style={leftCol}>
-            <h1 style={postTitle}>
+        <div style={innerStyle}>
+          <div style={leftColStyle}>
+            <h1 style={postTitleStyle}>
               {title}
             </h1>
             <div style={categorization}>
@@ -213,21 +247,22 @@ export default function BlogPage({ title, tags, authorImg, authorName, postDate,
               <img alt="" src={postImage} style={image} />
             </div>
             <div style={articleText}>
-              <div dangerouslySetInnerHTML={{__html: postText}}>
+              <div dangerouslySetInnerHTML={{ __html: postText }}>
               </div>
             </div>
           </div>
-          <div style={rightCol}>
+          <div style={rightColStyle}>
             <div style={recomended}>
               recomended posts
             </div>
             <div style={posts}>
-              {recomendedPosts?.map(p=>{
-                return(
-                  <MediumPost 
+              {recomendedPosts?.map(p => {
+                return (
+                  <MediumPost
                     date={p.node.publishDate}
                     title={p.node.title}
                     img={p.node.heroImage.fluid.src}
+                    slug={p.node.slug}
                   />
                 );
               })}
@@ -236,7 +271,7 @@ export default function BlogPage({ title, tags, authorImg, authorName, postDate,
         </div>
       </section>
       <hr style={hline}></hr>
-      <SignUpSection bgColor="#fff"/>
+      <SignUpSection bgColor="#fff" />
       <CategorySection />
       <Footer />
     </>

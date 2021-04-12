@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive';
+import { Link } from 'gatsby'
 
 const post = {
   textDecoration: 'none',
@@ -54,7 +55,7 @@ const text = {
   marginBottom: '0'
 };
 
-export default function MediumPost({ date, title, img }) {
+export default function MediumPost({ date, title, img, slug }) {
 
   const [imageWrapperStyle, setImageWrapperStyle] = useState(imageWrapper);
   const [textWrapperStyle, setTextWrapperStyle] = useState(textContainer);
@@ -108,7 +109,7 @@ export default function MediumPost({ date, title, img }) {
   }, [isMobile, stop]);
 
   return (
-    
+    <Link style={post} to={`/blog/${slug}`}>
       <a style={post}>
         <div style={imageWrapperStyle}>
           <img src={img} style={image} />
@@ -122,6 +123,6 @@ export default function MediumPost({ date, title, img }) {
           </h6>
         </div>
       </a>
-    
+    </Link>
   );
 };

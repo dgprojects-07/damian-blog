@@ -8,18 +8,18 @@ class BlogPostTemplate extends React.Component {
   render() {
     const allPosts = get(this.props, 'data.allContentfulBlogPost.edges')
     const post = get(this.props, 'data.contentfulBlogPost')
-    const author = get(this.props, 'data.allContentfulPerson.edges')
+    const [author] = get(this.props, 'data.allContentfulPerson.edges')
 
     return (
       <Layout location={this.props.location}>
         <BlogPage
-          title={post?.node.title}
-          tags={post?.node.tags}
+          title={post?.title}
+          tags={post?.tags}
           authorImg={author?.node.heroImage.fluid.src}
           authorName={author?.node.name}
-          postDate={post?.node.publishDate}
-          postImage={post?.node.heroImage.fluid.src}
-          postText={post?.node.description.childMarkdownRemark.html}
+          postDate={post?.publishDate}
+          postImage={post?.heroImage.fluid.src}
+          postText={post?.body.childMarkdownRemark.html}
           recomendedPosts={allPosts}
         />
       </Layout>
@@ -33,6 +33,7 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
       title
+      tags
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
         fluid(maxWidth: 1180, background: "rgb:000000") {

@@ -98,6 +98,7 @@ export default function MainPage({ posts, author }) {
                   date={p.node.publishDate}
                   title={p.node.title}
                   img={p.node.heroImage.fluid.src}
+                  slug={p.node.slug}
                 />
               );
             })}
@@ -117,6 +118,7 @@ export default function MainPage({ posts, author }) {
                   date={p.node.publishDate}
                   title={p.node.title}
                   img={p.node.heroImage.fluid.src}
+                  slug={p.node.slug}
                 />
               </div>
             );

@@ -112,10 +112,10 @@ export default function BigPost({ author, date, title, img, slug }) {
   }, [isMobile]);
 
   return (
-    <Link to={`/blog/:${slug}`}>
-      <a style={postStyle}>
+    <Link style={{textDecoration:'none'}} to={`/blog/${slug}`}>
+      <div style={postStyle}>
         <div style={imageWrapperStyle}>
-          <img src={img} style={image} />
+          <img alt={title} src={img} style={image} />
         </div>
         <div style={textWrapper}>
           <div style={textContainer}>
@@ -127,7 +127,7 @@ export default function BigPost({ author, date, title, img, slug }) {
             </h6>
           </div>
         </div>
-      </a>
+      </div>
     </Link>
   );
 };

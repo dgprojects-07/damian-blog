@@ -46,7 +46,7 @@ const search = {
 
 export default () => (
   <Navbar className="justify-content-center" style={nav} expand="lg">
-    <Navbar.Brand className="order-md-0 order-1" style={{marginRight:'2.5rem'}} href="#home">
+    <Navbar.Brand className="order-md-0 order-1" style={{marginRight:'2.5rem'}} href="/">
       <img className={styles.logo} src={logo} />
     </Navbar.Brand>
     <Navbar.Toggle style={{marginRight:'40px', border: 'none', color: '#E26447'}} className="order-md-1 order-0" aria-controls="basic-navbar-nav" />
