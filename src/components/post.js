@@ -54,9 +54,9 @@ const text = {
 export default function Post({ date, title, img, slug }) {
   return (
     <Link style={{ textDecoration: 'none' }} to={`/blog/${slug}`}>
-      <a style={post}>
+      <div style={post}>
         <div style={imageWrapper}>
-          <img src={img} style={image} />
+          <img alt="" src={img} style={image} />
         </div>
         <div style={textWrapper}>
           <p style={small}>
@@ -66,7 +66,7 @@ export default function Post({ date, title, img, slug }) {
             {title}
           </h6>
         </div>
-      </a>
+      </div>
     </Link>
   );
 }

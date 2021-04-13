@@ -33,6 +33,10 @@ const image = {
   paddingBottom: '80.7512%'
 };
 
+const titleStyle = {
+  fontFamily: "'P22', sans-serif"
+}
+
 export default function CategoryCard({ title, img }) {
 
   const [cardStyle, setCardStyle] = useState(card);
@@ -80,7 +84,7 @@ export default function CategoryCard({ title, img }) {
         <div style={imageWrapperStyle}>
           <img style={image} />
         </div>
-        <div>
+        <div style={titleStyle}>
           {title}
         </div>
       </a>

@@ -13,6 +13,7 @@ const signUp = {
 
 const signUpText = {
   fontWeight: '400',
+  fontFamily: "'P22', sans-serif",
   width: '50%',
   fontSize: '24px',
   lineHeight: '34px',

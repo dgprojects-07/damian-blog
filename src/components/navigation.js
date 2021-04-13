@@ -4,7 +4,6 @@ import styles from './navigation.module.css'
 import logo from '../../assets/petlabblog.jpg'
 import { Navbar, Nav } from 'react-bootstrap'
 
-
 const navLink = {
   fontSize: '18px',
   lineHeight: 1.2,
@@ -45,10 +44,13 @@ const search = {
 };
 
 export default () => (
+
   <Navbar className="justify-content-center" style={nav} expand="lg">
-    <Navbar.Brand className="order-md-0 order-1" style={{marginRight:'2.5rem'}} href="/">
-      <img className={styles.logo} src={logo} />
-    </Navbar.Brand>
+      <Navbar.Brand className="order-md-0 order-1" style={{marginRight:'2.5rem'}} href="/">
+        <Link to={"/"}>
+          <img alt="" className={styles.logo} src={logo} />
+        </Link>
+      </Navbar.Brand>
     <Navbar.Toggle style={{marginRight:'40px', border: 'none', color: '#E26447'}} className="order-md-1 order-0" aria-controls="basic-navbar-nav" />
     <Navbar.Collapse style={{flexGrow:0, marginRight:'40px'}} id="basic-navbar-nav">
       <Nav className="mr-auto">

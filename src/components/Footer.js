@@ -107,12 +107,12 @@ export default function Footer() {
         <div style={footerContentStyle}>
           <ul style={footerUlStyle}>
             <li style={footerLiStyle}>
-              <a style={footerA}>
+              <a href="/" style={footerA}>
                 Logo
               </a>
             </li>
             <li style={footerLiStyle}>
-              <a style={footerA}>
+              <a href="/" style={footerA}>
                 More infromation
               </a>
               <br></br>
@@ -127,7 +127,7 @@ export default function Footer() {
                 Cookies Policy
             </li>
             <li style={footerLiStyle}>
-              <a style={footerA}>
+              <a href="/" style={footerA}>
                 Learn something
               </a>
               <br></br>
@@ -140,7 +140,7 @@ export default function Footer() {
                 Tips & Tricks
             </li>
             <li style={footerLiStyle}>
-              <a style={footerA}>
+              <a href="/" style={footerA}>
                 Contact Us
               </a>
               <br></br>

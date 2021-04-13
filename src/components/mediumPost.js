@@ -43,7 +43,9 @@ const small = {
   letterSpacing: 0,
   color: '#E26447',
   lineHeight: '0',
-  textTransform: 'uppercase'
+  textTransform: 'uppercase',
+  marginBottom: '1rem',
+  marginTop: '5px'
 };
 
 const text = {
@@ -110,9 +112,9 @@ export default function MediumPost({ date, title, img, slug }) {
 
   return (
     <Link style={post} to={`/blog/${slug}`}>
-      <a style={post}>
+      <a href={`/blog/${slug}`} style={post}>
         <div style={imageWrapperStyle}>
-          <img src={img} style={image} />
+          <img alt="" src={img} style={image} />
         </div>
         <div style={textWrapperStyle}>
           <p style={smallStyle}>

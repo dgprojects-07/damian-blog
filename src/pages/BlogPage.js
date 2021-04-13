@@ -40,7 +40,9 @@ const postTitle = {
   fontSize: '46px',
   fontWeight: '600',
   lineHeight: '52px',
-  marginBottom: '.5rem'
+  marginBottom: '.5rem',
+  fontFamily: "'P22', sans-serif",
+  color: '#424242'
 };
 
 const categorization = {
@@ -55,7 +57,8 @@ const tag = {
   color: '#E26447',
   fontWeight: '600',
   fontSize: '16px',
-  textTransform: 'uppercase'
+  textTransform: 'uppercase',
+  fontFamily: "'P22', sans-serif",
 };
 
 const line = {
@@ -144,7 +147,8 @@ const articleText = {
   fontSize: '16px',
   lineHeight: '30px',
   color: '#000',
-  marginTop: '.5rem'
+  marginTop: '.5rem',
+  fontFamily: "'P22', sans-serif"
 };
 
 const recomended = {
