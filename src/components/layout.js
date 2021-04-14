@@ -6,10 +6,10 @@ import Navigation from './navigation'
 class Template extends React.Component {
   render() {
     const { children } = this.props
-
+    
     return (
       <Container>
-        <Navigation />
+        <Navigation posts={children.props.posts? children.props.posts : children.props.recomendedPosts}/>
         {children}
       </Container>
     )
