@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import Post from '../components/Post'
 
 const search = {
@@ -6,23 +7,22 @@ const search = {
   cursor: 'pointer'
 };
 
-const inputStyle = {
+const _inputStyle = {
   borderRadius: "8px",
   borderWidth: '1px',
-  //borderColor: '#E26447',
   boxShadow: '0px',
   maxWidth: '170px',
   fontFamily: "'P22', sans-serif",
-
+  color: '#293F4C'
 };
 
-const dropdownStyle = {
+const _dropdownStyle = {
   position: 'fixed',
   display: 'flex',
   flexFlow: 'column',
-  marginLeft: '58%',
+  marginLeft: '45%',
   marginTop: '220px',
-  backgroundColor: '#ffffff',
+  backgroundColor: 'white',
   width: '625px',
 };
 
@@ -32,6 +32,36 @@ export default function SearchBar({ posts }) {
   const [show, setShow] = useState(false);
   const [input, setInput] = useState("");
   const [dropdown, setDropdown] = useState(false);
+
+  const [inputStyle, setInputStyle] = useState(_inputStyle);
+  const [dropdownStyle, setDropdownStyle] = useState(_dropdownStyle);
+
+  const isMobile = useMediaQuery({
+    query: '(max-width: 890px)'
+  });
+
+  useEffect(()=>{
+    if (isMobile) {
+      setInputStyle({
+        borderRadius: "8px",
+        borderWidth: '1px',
+        boxShadow: '0px',
+        maxWidth: '80px',
+        fontFamily: "'P22', sans-serif",
+      });
+      setDropdownStyle({
+        position: 'fixed',
+        display: 'flex',
+        flexFlow: 'column',
+        marginTop: '220px',
+        backgroundColor: 'white',
+        width: '94%',
+      });
+    } else {
+      setInputStyle(_inputStyle);
+      setDropdownStyle(_dropdownStyle);
+    }
+  },[isMobile]);
 
   const searchPost = (event) => {
     setInput(event.target.value);
@@ -44,7 +74,7 @@ export default function SearchBar({ posts }) {
 
   return (
     <>
-      {show ? <input value={input} style={inputStyle} onChange={searchPost} type="text" placeholder="Search..." /> : null}
+      {show ? <input value={input} className="order-md-2 order-2" style={inputStyle} onChange={searchPost} type="text" placeholder="Search..." /> : null}
       <button className="order-md-2 order-2" style={{ border: '0', backgroundColor: 'transparent' }} onClick={() => {setShow(!show); setDropdown(false);}}>
         <span style={search}>
           <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">

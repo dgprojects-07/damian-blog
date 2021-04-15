@@ -29,6 +29,8 @@ export default function MainPage({ posts, author }) {
   const [latestPostsStyle, setLatestPostsStyle] = useState(styles.latestPosts);
   const [postContainerStyle, setPostContainerStyle] = useState(styles.postContainer);
 
+  const [loadedPosts, setLoadedPosts] = useState(posts.slice(0,6));
+
   useEffect(() => {
     if (isScrolling && isScrollingBack) {
       setContainerStyle({
@@ -75,6 +77,14 @@ export default function MainPage({ posts, author }) {
     }
   }, [isMobile, isScrolling, isScrollingBack]);
 
+  const loadMore = () => {
+    if (loadedPosts.length < posts?.length) {
+      let tmp = loadedPosts;
+      let tmp2 = tmp.concat(posts.slice(loadedPosts.length,loadedPosts.length+3));
+      setLoadedPosts(tmp2);
+    }
+  };
+
   return (
     <>
       <div style={styles.postSection}>
@@ -111,7 +121,7 @@ export default function MainPage({ posts, author }) {
           Latest posts
         </div>
         <section style={latestPostsStyle}>
-          {posts?.map(p => {
+          {loadedPosts?.map(p => {
             return (
               <div style={postContainerStyle}>
                 <MediumPost
@@ -125,7 +135,7 @@ export default function MainPage({ posts, author }) {
           })}
         </section>
         <div style={styles.latestBtnSection}>
-          <button style={styles.latestBtn}>Load More</button>
+          <button onClick={loadMore} style={styles.latestBtn}>Load More</button>
         </div>
       </section>
       <SignUpSection bgColor="#f5f6ff"/>

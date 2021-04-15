@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
-import styles from './navigation.module.css'
 import logo from '../../assets/petlabblog.jpg'
 import SearchBar from './SearchBar'
 import { Navbar, Nav } from 'react-bootstrap'
+import { useMediaQuery } from 'react-responsive'
 
 const navLink = {
   fontSize: '18px',
@@ -38,12 +38,35 @@ const nav = {
   whiteSpace: 'nowrap',
 };
 
-export default ({ posts }) => (
+const _logoStyle =  {
+  height: '48px',
+  verticalAlign: 'middle'
+};
 
+export default function Navigation({ posts }) {
+
+  const isMobile = useMediaQuery({
+    query: '(max-width: 890px)'
+  });
+
+  const [logoStyle, setLogoStyle] = useState(_logoStyle);
+
+  useEffect(()=>{
+    if (isMobile) {
+      setLogoStyle({
+        height: '40px',
+        verticalAlign: 'middle'
+      });
+    } else {
+      setLogoStyle(_logoStyle);
+    }
+  },[isMobile]);
+
+  return (
   <Navbar className="justify-content-center" style={nav} expand="lg">
     <Navbar.Brand className="order-md-0 order-1" style={{ marginRight: '2.5rem' }} href="/">
       <Link to={"/"}>
-        <img alt="" className={styles.logo} src={logo} />
+        <img alt="" style={logoStyle} src={logo} />
       </Link>
     </Navbar.Brand>
     <Navbar.Toggle style={{ marginRight: '40px', border: 'none', color: '#E26447' }} className="order-md-1 order-0" aria-controls="basic-navbar-nav" />
@@ -58,5 +81,5 @@ export default ({ posts }) => (
       </Nav>
     </Navbar.Collapse>
     <SearchBar posts={posts}/>
-  </Navbar>
-)
+  </Navbar>)
+}
