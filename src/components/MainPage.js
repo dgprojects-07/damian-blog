@@ -9,7 +9,7 @@ import Footer from './Footer'
 import styles from './mainPageStyles'
 
 
-export default function MainPage({ posts, author }) {
+export default function MainPage({ posts }) {
 
   const isMobile = useMediaQuery({
     query: '(max-width: 890px)'
@@ -91,7 +91,7 @@ export default function MainPage({ posts, author }) {
         <div style={containerStyle}>
           <div style={leftColStyle} >
             <BigPost
-              author={author.node.name}
+              author={posts[0].node.author.name}
               date={posts[0].node.publishDate}
               title={posts[0].node.title}
               img={posts[0].node.heroImage.fluid.src}

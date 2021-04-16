@@ -176,7 +176,7 @@ const hline = {
   width: '80%',
 };
 
-export default function BlogPage({ title, tags, authorImg, authorName, postDate, postImage, postText, recomendedPosts }) {
+export default function BlogPage({ title, tags, authorImg, authorName, postDate, postImage, postText, recomendedPosts, recomendedQ }) {
 
   const isMobile = useMediaQuery({
     query: '(max-width: 890px)'
@@ -260,7 +260,7 @@ export default function BlogPage({ title, tags, authorImg, authorName, postDate,
               recomended posts
             </div>
             <div style={posts}>
-              {recomendedPosts?.map(p => {
+              {recomendedPosts?.slice(0, recomendedQ).map(p => {
                 return (
                   <MediumPost
                     date={p.node.publishDate}

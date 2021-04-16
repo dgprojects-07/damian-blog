@@ -13,10 +13,10 @@ class RootIndex extends React.Component {
 
   render() {
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
+    
     return (
       <Layout location={this.props.location}>
-        <MainPage posts={posts} author={author} />
+        <MainPage posts={posts} />
       </Layout>
     )
   }
@@ -33,6 +33,19 @@ export const pageQuery = graphql`
           slug
           publishDate(formatString: "MMMM Do, YYYY")
           tags
+          author {
+            name
+            heroImage: image {
+              fluid(
+                maxWidth: 1180
+                maxHeight: 480
+                resizingBehavior: PAD
+                background: "rgb:000000"
+              ) {
+                ...GatsbyContentfulFluid_tracedSVG
+              }
+            }
+          }
           heroImage {
             fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
               ...GatsbyContentfulFluid_tracedSVG
@@ -41,29 +54,6 @@ export const pageQuery = graphql`
           description {
             childMarkdownRemark {
               html
-            }
-          }
-        }
-      }
-    }
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
-      edges {
-        node {
-          name
-          shortBio {
-            shortBio
-          }
-          title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
