@@ -28,6 +28,7 @@ export default function MainPage({ posts }) {
   const [leftColStyle, setLeftColStyle] = useState(styles.leftCol);
   const [latestPostsStyle, setLatestPostsStyle] = useState(styles.latestPosts);
   const [postContainerStyle, setPostContainerStyle] = useState(styles.postContainer);
+  const [postSectionStyle, setPostSectionStyle] = useState(styles.postSection);
 
   const [loadedPosts, setLoadedPosts] = useState(posts.slice(0,6));
 
@@ -46,7 +47,7 @@ export default function MainPage({ posts }) {
         flexFlow: "column",
         justifyContent: 'space-between',
         paddingRight: '15px',
-        paddingLeft: '15px'
+        paddingLeft: '15px',
       });
       setRightColStyle({
         width: '100%'
@@ -68,12 +69,20 @@ export default function MainPage({ posts }) {
         display: 'flex',
         flexDirection: 'column'
       });
+      setPostSectionStyle({
+        paddingBottom: '1.5rem',
+        width: '100%',
+        marginBottom: '1.5rem',
+        marginRight: 'auto',
+        marginLeft: 'auto',
+      });
     } else {
       setContainerStyle(styles.container);
       setLeftColStyle(styles.leftCol);
       setRightColStyle(styles.rightCol);
       setLatestPostsStyle(styles.latestPosts);
       setPostContainerStyle(styles.postContainer);
+      setPostSectionStyle(styles.postSection);
     }
   }, [isMobile, isScrolling, isScrollingBack]);
 
@@ -87,7 +96,7 @@ export default function MainPage({ posts }) {
 
   return (
     <>
-      <div style={styles.postSection}>
+      <div style={postSectionStyle}>
         <div style={containerStyle}>
           <div style={leftColStyle} >
             <BigPost

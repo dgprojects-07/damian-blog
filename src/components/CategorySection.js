@@ -43,11 +43,15 @@ export default function CategorySection() {
     query: '(max-width: 890px)'
   });
 
+  const isSmall = useMediaQuery({
+    query: '(max-width: 450px)'
+  });
+
   const [catContainerStyle, setCatContainerStyle] = useState(catContainer);
   const [catTitleStyle, setCatTitleStyle] = useState(title);
 
   useEffect(()=>{
-   if (isMobile) {
+   if (isMobile && !isSmall) {
     setCatContainerStyle({
       gridTemplateColumns: '1fr 1fr',
       columnGap: '15px',
@@ -66,11 +70,19 @@ export default function CategorySection() {
       fontFamily: "'P22', sans-serif",
       padding: '0 0 30px'
     });
-   } else {
+   } else if (isSmall) {
+    setCatContainerStyle({
+      padding: 0,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      display: 'flex',
+      flexDirection: 'column'
+    });
+   }else {
       setCatContainerStyle(catContainer);
       setCatTitleStyle(title);
    }
-  },[isMobile])
+  },[isMobile, isSmall])
 
   return (
     <div style={categories}>

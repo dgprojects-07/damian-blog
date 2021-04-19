@@ -84,11 +84,15 @@ export default function SignUpSection({ bgColor }) {
     query: '(max-width: 890px)'
   });
 
+  const isSmall = useMediaQuery({
+    query: '(max-width: 450px)'
+  });
+
   const [formStyle, setFormStyle] = useState(form);
   const [inputStyle, setInputStyle] = useState(input);
 
   useEffect(() => {
-    if (isMobile) {
+    if (isMobile && !isSmall) {
       setFormStyle({
         display: 'flex',
         justifyContent: 'center',
@@ -108,11 +112,31 @@ export default function SignUpSection({ bgColor }) {
         minWidth: '380px',
         fontSize: '22px',
       });
+    } else if (isSmall) {
+      setFormStyle({
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        margin: '20px auto 0'
+      });
+      setInputStyle({
+        marginBottom: '20px',
+        height: '62px',
+        boxShadow: '0 0 40px rgb(2 12 87 / 15%)',
+        maxWidth: '402px',
+        borderRadius: '8px',
+        border: '1px solid #c8c8c8',
+        padding: '17px 30px',
+        fontWeight: '400',
+        width: '100%',
+        fontSize: '16px',
+      });
     } else {
       setFormStyle(form);
       setInputStyle(input);
     }
-  }, [isMobile]);
+  }, [isMobile, isSmall]);
 
   return (
     <section style={signUpContainer}>

@@ -50,20 +50,36 @@ export default function Navigation({ posts }) {
   });
 
   const [logoStyle, setLogoStyle] = useState(_logoStyle);
+  const [navStyle, setNavStyle] = useState(nav);
 
   useEffect(()=>{
     if (isMobile) {
       setLogoStyle({
-        height: '40px',
+        height: '25px',
         verticalAlign: 'middle'
+      });
+      setNavStyle({
+        height: '70px',
+        width: '100%',
+        padding: '.5rem 1rem',
+        boxShadow: '0 0 6px rgb(0 0 0 / 10%)',
+        top: 0,
+        backgroundColor: '#fff',
+        paddingLeft: 0,
+        paddingRight: 0,
+        marginRight: 'auto',
+        marginLeft: 'auto',
+        marginBottom: '1rem',
+        whiteSpace: 'nowrap',
       });
     } else {
       setLogoStyle(_logoStyle);
+      setNavStyle(nav);
     }
   },[isMobile]);
 
   return (
-  <Navbar className="justify-content-center" style={nav} expand="lg">
+  <Navbar className="justify-content-center" style={navStyle} expand="lg">
     <Navbar.Brand className="order-md-0 order-1" style={{ marginRight: '2.5rem' }} href="/">
       <Link to={"/"}>
         <img alt="" style={logoStyle} src={logo} />

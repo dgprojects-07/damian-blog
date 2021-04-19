@@ -48,8 +48,12 @@ export default function CategoryCard({ title, img }) {
     query: '(max-width: 890px)'
   });
 
+  const isSmall = useMediaQuery({
+    query: '(max-width: 450px)'
+  });
+
   useEffect(() => {
-    if (isMobile) {
+    if (isMobile && !isSmall) {
       setCardStyle({
         fontSize: '18px',
         fontWeight: '600',
@@ -69,14 +73,26 @@ export default function CategoryCard({ title, img }) {
         width: '100%',
         height: 'auto',
         margin: 'auto',
-        maxWidth: '137px'
+        maxWidth: '127px'
+      });
+    } else if (isSmall) {
+      setCardWrapperStyle({
+        background: '#fff',
+        borderRadius: '8px',
+        boxShadow: '0 0 20px rgb(0 0 0 / 20%)',
+        textTransform: 'uppercase',
+        color: '#293F4C',
+        padding: '8px 10px 10px',
+        margin: 'auto',
+        width: '80%',
+        marginBottom: '15px'
       });
     } else {
       setCardStyle(card);
       setCardWrapperStyle(cardWrapper);
       setImageWrapperStyle(imageWrapper);
     }
-  }, [isMobile]);
+  }, [isMobile, isSmall]);
 
   return (
     <div style={cardWrapperStyle}>
