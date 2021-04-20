@@ -38,7 +38,7 @@ const nav = {
   whiteSpace: 'nowrap',
 };
 
-const _logoStyle =  {
+const _logoStyle = {
   height: '48px',
   verticalAlign: 'middle'
 };
@@ -52,7 +52,7 @@ export default function Navigation({ posts }) {
   const [logoStyle, setLogoStyle] = useState(_logoStyle);
   const [navStyle, setNavStyle] = useState(nav);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (isMobile) {
       setLogoStyle({
         height: '25px',
@@ -76,26 +76,27 @@ export default function Navigation({ posts }) {
       setLogoStyle(_logoStyle);
       setNavStyle(nav);
     }
-  },[isMobile]);
+  }, [isMobile]);
 
   return (
-  <Navbar className="justify-content-center" style={navStyle} expand="lg">
-    <Navbar.Brand className="order-md-0 order-1" style={{ marginRight: '2.5rem' }} href="/">
-      <Link to={"/"}>
-        <img alt="" style={logoStyle} src={logo} />
-      </Link>
-    </Navbar.Brand>
-    <Navbar.Toggle style={{ marginRight: '40px', border: 'none', color: '#E26447' }} className="order-md-1 order-0" aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse style={{ flexGrow: 0, marginRight: '40px' }} id="basic-navbar-nav">
-      <Nav className="mr-auto">
-        <Nav.Link style={navLink} href="#home">Supplements</Nav.Link>
-        <Nav.Link style={navLink} href="#link">Natural Remedies</Nav.Link>
-        <Nav.Link style={navLink} href="#link">Recipes</Nav.Link>
-        <Nav.Link style={navLink} href="#link">Tips & Tricks</Nav.Link>
-        <Nav.Link style={navLink} href="#link">Behaviour</Nav.Link>
-        <Nav.Link style={navLink} href="#link">Health & Wellness</Nav.Link>
-      </Nav>
-    </Navbar.Collapse>
-    <SearchBar posts={posts}/>
-  </Navbar>)
+    <Navbar className="justify-content-center" style={navStyle} expand="lg">
+      <Navbar.Brand className="order-md-0 order-1" style={{ marginRight: '2.5rem' }} href="/">
+        <Link to={"/"}>
+          <img alt="" style={logoStyle} src={logo} />
+        </Link>
+      </Navbar.Brand>
+      <Navbar.Toggle style={{ marginRight: '40px', border: 'none', color: '#E26447' }} className="order-md-1 order-0" aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse style={{ flexGrow: 0, marginRight: '40px' }} id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link style={navLink} href="#home">Supplements</Nav.Link>
+          <Nav.Link style={navLink} href="#link">Natural Remedies</Nav.Link>
+          <Nav.Link style={navLink} href="#link">Recipes</Nav.Link>
+          <Nav.Link style={navLink} href="#link">Tips & Tricks</Nav.Link>
+          <Nav.Link style={navLink} href="#link">Behaviour</Nav.Link>
+          <Nav.Link style={navLink} href="#link">Health & Wellness</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+      <SearchBar posts={posts} />
+    </Navbar>
+  );
 }

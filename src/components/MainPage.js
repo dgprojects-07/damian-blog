@@ -114,6 +114,7 @@ export default function MainPage({ posts }) {
             {posts?.map(p => {
               return (
                 <Post
+                  key={p.node.slug}
                   date={p.node.publishDate}
                   title={p.node.title}
                   img={p.node.heroImage.fluid.src}
@@ -130,10 +131,11 @@ export default function MainPage({ posts }) {
           Latest posts
         </div>
         <section style={latestPostsStyle}>
-          {loadedPosts?.map(p => {
+          {loadedPosts?.map((p,index) => {
             return (
-              <div style={postContainerStyle}>
+              <div key={index} style={postContainerStyle}>
                 <MediumPost
+                  key={index}
                   date={p.node.publishDate}
                   title={p.node.title}
                   img={p.node.heroImage.fluid.src}

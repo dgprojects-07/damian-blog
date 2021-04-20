@@ -186,6 +186,7 @@ export default function BlogPage({ title, tags, authorImg, authorName, postDate,
   const [rightColStyle, setRightColStyle] = useState(rightCol);
   const [leftColStyle, setLeftColStyle] = useState(leftCol);
   const [postTitleStyle, setPostTitleStyle] = useState(postTitle);
+  const [containerStyle, setContainerStyle] = useState(container);
 
   useEffect(() => {
     if (isMobile) {
@@ -208,17 +209,29 @@ export default function BlogPage({ title, tags, authorImg, authorName, postDate,
         lineHeight: '38px',
         marginBottom: '.5rem'
       });
+      setContainerStyle({
+        maxWidth: '1345px',
+        paddingLeft: '1.5rem',
+        paddingRight: '1.5rem',
+        paddingBottom: '1.5rem',
+        paddingTop: '1.5rem',
+        width: '100%',
+        marginRight: 'auto',
+        marginLeft: 'auto',
+        marginTop: '0'
+      });
     } else {
       setInnerStyle(inner);
       setRightColStyle(rightCol);
       setLeftColStyle(leftCol);
       setPostTitleStyle(postTitle);
+      setContainerStyle(container);
     }
   }, [isMobile]);
 
   return (
     <>
-      <section style={container}>
+      <section style={containerStyle}>
         <div style={innerStyle}>
           <div style={leftColStyle}>
             <h1 style={postTitleStyle}>
