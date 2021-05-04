@@ -14,10 +14,10 @@ class BlogPostTemplate extends React.Component {
         <BlogPage
           title={post?.title}
           tags={post?.tags}
-          authorImg={post?.author.heroImage.fluid.src}
+          authorImg={post?.author.heroImage.fluid}
           authorName={post?.author.name}
           postDate={post?.publishDate}
-          postImage={post?.heroImage.fluid.src}
+          postImage={post?.heroImage.fluid}
           postText={post?.body.childMarkdownRemark.html}
           recomendedPosts={allPosts}
           recomendedQ = {allPosts[0]?.node.recommendedNumber}
@@ -43,14 +43,14 @@ export const pageQuery = graphql`
             resizingBehavior: PAD
             background: "rgb:000000"
           ) {
-            ...GatsbyContentfulFluid_tracedSVG
+            ...GatsbyContentfulFluid
           }
         }
       }
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
         fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid
         }
       }
       body {
@@ -69,7 +69,7 @@ export const pageQuery = graphql`
           recommendedNumber
           heroImage {
             fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
           description {

@@ -4,6 +4,7 @@ import CategorySection from "../components/CategorySection";
 import Footer from "../components/Footer";
 import MediumPost from "../components/MediumPost";
 import SignUpSection from "../components/SignUpSection";
+import Img from "gatsby-image";
 
 const container = {
   maxWidth: "1345px",
@@ -251,7 +252,7 @@ export default function BlogPage({
             <div style={articleInfo}>
               <div style={articleMeta}>
                 <span>
-                  <img alt="author" src={authorImg} style={authorImage} />
+                  <Img alt="author" fluid={authorImg} style={authorImage} />
                 </span>
                 <div style={dateAuthor}>
                   <div>
@@ -263,7 +264,7 @@ export default function BlogPage({
               </div>
             </div>
             <div style={imageWrapper}>
-              <img alt="" src={postImage} style={image} />
+              <Img alt="" fluid={postImage} style={image} />
             </div>
             <div style={articleText}>
               <div dangerouslySetInnerHTML={{ __html: postText }}></div>
