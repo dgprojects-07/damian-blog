@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive';
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 
 const post = {
   textDecoration: 'none',
@@ -115,7 +116,7 @@ export default function BigPost({ author, date, title, img, slug }) {
     <Link style={{textDecoration:'none'}} to={`/blog/${slug}`}>
       <div style={postStyle}>
         <div style={imageWrapperStyle}>
-          <img alt={title} src={img} style={image} />
+          <Img alt={title} fluid={img} style={image} />
         </div>
         <div style={textWrapper}>
           <div style={textContainer}>

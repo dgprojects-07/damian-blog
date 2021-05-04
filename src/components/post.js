@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 
 const post = {
   textDecoration: 'none',
@@ -56,7 +57,7 @@ export default function Post({ date, title, img, slug }) {
     <Link style={{ textDecoration: 'none' }} to={`/blog/${slug}`}>
       <div style={post}>
         <div style={imageWrapper}>
-          <img alt="" src={img} style={image} />
+          <Img alt="" fluid={img} style={image} />
         </div>
         <div style={textWrapper}>
           <p style={small}>

@@ -103,7 +103,7 @@ export default function MainPage({ posts }) {
               author={posts[0].node.author.name}
               date={posts[0].node.publishDate}
               title={posts[0].node.title}
-              img={posts[0].node.heroImage.fluid.src}
+              img={posts[0].node.heroImage.fluid}
               slug={posts[0].node.slug}
             />
           </div>
@@ -117,7 +117,7 @@ export default function MainPage({ posts }) {
                   key={p.node.slug}
                   date={p.node.publishDate}
                   title={p.node.title}
-                  img={p.node.heroImage.fluid.src}
+                  img={p.node.heroImage.fluid}
                   slug={p.node.slug}
                 />
               );
@@ -138,7 +138,7 @@ export default function MainPage({ posts }) {
                   key={index}
                   date={p.node.publishDate}
                   title={p.node.title}
-                  img={p.node.heroImage.fluid.src}
+                  img={p.node.heroImage.fluid}
                   slug={p.node.slug}
                 />
               </div>

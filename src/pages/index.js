@@ -3,10 +3,7 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import Layout from '../components/layout'
 import MainPage from '../components/MainPage'
-import "bootstrap/dist/css/bootstrap.min.css";
-import "jquery/dist/jquery.min.js";
-import "popper.js/dist/popper.min";
-import "bootstrap/dist/js/bootstrap.min.js"
+
 
 
 class RootIndex extends React.Component {
@@ -42,13 +39,13 @@ export const pageQuery = graphql`
                 resizingBehavior: PAD
                 background: "rgb:000000"
               ) {
-                ...GatsbyContentfulFluid_tracedSVG
+                ...GatsbyContentfulFluid
               }
             }
           }
           heroImage {
             fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
           description {

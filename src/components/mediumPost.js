@@ -1,106 +1,105 @@
-import React, { useEffect, useState } from 'react'
-import { useMediaQuery } from 'react-responsive';
-import { Link } from 'gatsby'
+import React, { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
+import { Link } from "gatsby";
+import Img from 'gatsby-image';
 
 const post = {
-  textDecoration: 'none',
+  textDecoration: "none",
   borderRadius: "8px",
-  boxShadow: '0 0 20px rgb(0 0 0 / 20%)',
-  height: '100%',
-  marginTop: '19px',
-  marginBottom: '19px',
-  background: '#fff',
-  overflow: 'hidden',
-  color: '#293F4C',
-  
+  boxShadow: "0 0 20px rgb(0 0 0 / 20%)",
+  height: "100%",
+  marginTop: "19px",
+  marginBottom: "19px",
+  background: "#fff",
+  overflow: "hidden",
+  color: "#293F4C",
 };
 
 const imageWrapper = {
-  backgroundSize: 'cover',
-  backgroundPosition: '50%',
-  backgroundRepeat: 'no-repeat',
-  minHeight: '234px',
+  backgroundSize: "cover",
+  backgroundPosition: "50%",
+  backgroundRepeat: "no-repeat",
+  minHeight: "234px",
 };
 
 const image = {
-  overflow: 'hidden',
-  width: '100%',
-  height: '100%'
+  overflow: "hidden",
+  width: "100%",
+  height: "100%",
 };
 
 const textContainer = {
-  paddingTop: '1rem',
-  paddingBottom: '1.5rem',
-  paddingLeft: '1.5rem',
-  paddingRight: '1.5rem',
-}
+  paddingTop: "1rem",
+  paddingBottom: "1.5rem",
+  paddingLeft: "1.5rem",
+  paddingRight: "1.5rem",
+};
 
 const small = {
-  fontSize: '14px',
-  fontWeight: '600',
-  textAlign: 'left',
-  fontFamily: 'P22, sans-serif',
+  fontSize: "14px",
+  fontWeight: "600",
+  textAlign: "left",
+  fontFamily: "P22, sans-serif",
   letterSpacing: 0,
-  color: '#E26447',
-  lineHeight: '0',
-  textTransform: 'uppercase',
-  marginBottom: '1rem',
-  marginTop: '5px'
+  color: "#E26447",
+  lineHeight: "0",
+  textTransform: "uppercase",
+  marginBottom: "1rem",
+  marginTop: "5px",
 };
 
 const text = {
-  fontSize: '20px',
-  fontWeight: '600',
-  lineHeight: '28px',
-  color: '#424242',
-  marginTop: '0',
-  marginBottom: '0'
+  fontSize: "20px",
+  fontWeight: "600",
+  lineHeight: "28px",
+  color: "#424242",
+  marginTop: "0",
+  marginBottom: "0",
 };
 
 export default function MediumPost({ date, title, img, slug }) {
-
   const [imageWrapperStyle, setImageWrapperStyle] = useState(imageWrapper);
   const [textWrapperStyle, setTextWrapperStyle] = useState(textContainer);
   const [smallStyle, setSmallStyle] = useState(small);
   const [textStyle, setTextStyle] = useState(text);
 
   const isMobile = useMediaQuery({
-    query: '(max-width: 890px)'
+    query: "(max-width: 890px)",
   });
 
   const stop = useMediaQuery({
-    query: '(max-width: 1380px)'
+    query: "(max-width: 1380px)",
   });
 
   useEffect(() => {
     if (isMobile || stop) {
       setImageWrapperStyle({
-        backgroundSize: 'cover',
-        backgroundPosition: '50%',
-        backgroundRepeat: 'no-repeat',
-        minHeight: '192px',
+        backgroundSize: "cover",
+        backgroundPosition: "50%",
+        backgroundRepeat: "no-repeat",
+        minHeight: "192px",
       });
       setTextWrapperStyle({
-        padding: '18px 24px'
+        padding: "18px 24px",
       });
       setSmallStyle({
-        fontSize: '12px',
-        fontWeight: '400',
-        textAlign: 'left',
-        fontFamily: 'P22, sans-serif',
+        fontSize: "12px",
+        fontWeight: "400",
+        textAlign: "left",
+        fontFamily: "P22, sans-serif",
         letterSpacing: 0,
-        color: '#E26447',
-        lineHeight: '1',
-        textTransform: 'uppercase',
-        marginBottom: '8px',
+        color: "#E26447",
+        lineHeight: "1",
+        textTransform: "uppercase",
+        marginBottom: "8px",
       });
       setTextStyle({
-        fontSize: '18px',
-        fontWeight: '600',
-        lineHeight: '24px',
-        color: '#424242',
-        marginTop: '0',
-        marginBottom: '0'
+        fontSize: "18px",
+        fontWeight: "600",
+        lineHeight: "24px",
+        color: "#424242",
+        marginTop: "0",
+        marginBottom: "0",
       });
     } else {
       setImageWrapperStyle(imageWrapper);
@@ -112,19 +111,13 @@ export default function MediumPost({ date, title, img, slug }) {
 
   return (
     <Link style={post} to={`/blog/${slug}`}>
-      <a href={`/blog/${slug}`} style={post}>
-        <div style={imageWrapperStyle}>
-          <img alt="" src={img} style={image} />
-        </div>
-        <div style={textWrapperStyle}>
-          <p style={smallStyle}>
-            {date}
-          </p>
-          <h6 style={textStyle}>
-            {title}
-          </h6>
-        </div>
-      </a>
+      <div style={imageWrapperStyle}>
+        <Img alt="" fluid={img} style={image} />
+      </div>
+      <div style={textWrapperStyle}>
+        <p style={smallStyle}>{date}</p>
+        <h6 style={textStyle}>{title}</h6>
+      </div>
     </Link>
   );
-};
+}
