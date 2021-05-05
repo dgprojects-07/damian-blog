@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import Post from "../components/Post";
+import Post from "./Post";
 
 const search = {
   color: "#E26447",
@@ -109,9 +109,10 @@ export default function SearchBar({ posts }) {
           {posts?.map((p) =>
             p.node.title.toLowerCase().startsWith(input.toLowerCase()) ? (
               <Post
+                key={p.node.slug}
                 date={p.node.publishDate}
                 title={p.node.title}
-                img={p.node.heroImage.fluid.src}
+                img={p.node.heroImage.fluid}
                 slug={p.node.slug}
               />
             ) : null

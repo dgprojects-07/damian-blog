@@ -230,6 +230,17 @@ export default function BlogPage({
         marginLeft: "auto",
         marginTop: "0",
       });
+      setContainerStyle({
+        maxWidth: '1345px',
+        paddingLeft: '1.5rem',
+        paddingRight: '1.5rem',
+        paddingBottom: '1.5rem',
+        paddingTop: '1.5rem',
+        width: '100%',
+        marginRight: 'auto',
+        marginLeft: 'auto',
+        marginTop: '0'
+      });
     } else {
       setInnerStyle(inner);
       setRightColStyle(rightCol);
