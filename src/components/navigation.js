@@ -39,7 +39,11 @@ const nav = {
 };
 
 const _logoStyle = {
-  height: "48px",
+  width: '100%',
+  height: 'auto',
+  maxHeight: '48px',
+  maxWidth: '270px',
+  minWidth: '150px',
   verticalAlign: "middle",
 };
 

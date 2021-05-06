@@ -43,7 +43,7 @@ export default function CategoryCard({ title, img }) {
   const [imageWrapperStyle, setImageWrapperStyle] = useState(imageWrapper);
 
   const isMobile = useMediaQuery({
-    query: "(max-width: 890px)",
+    query: "(max-width: 1070px)",
   });
 
   const isSmall = useMediaQuery({

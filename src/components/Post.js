@@ -49,7 +49,8 @@ const text = {
   fontSize: '20px',
   fontWeight: '600',
   lineHeight: '28px',
-  color: '#424242'
+  color: '#424242',
+  fontFamily: 'P22, sans-serif',
 };
 
 export default function Post({ date, title, img, slug }) {

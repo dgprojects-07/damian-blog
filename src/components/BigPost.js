@@ -56,7 +56,8 @@ const text = {
   fontWeight: '600',
   lineHeight: '40px',
   color: '#424242',
-  margin: '5px 0 0'
+  margin: '5px 0 0',
+  fontFamily: 'P22, sans-serif',
 };
 
 export default function BigPost({ author, date, title, img, slug }) {

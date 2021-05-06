@@ -55,6 +55,7 @@ const text = {
   color: "#424242",
   marginTop: "0",
   marginBottom: "0",
+  fontFamily: 'P22, sans-serif',
 };
 
 export default function MediumPost({ date, title, img, slug }) {
